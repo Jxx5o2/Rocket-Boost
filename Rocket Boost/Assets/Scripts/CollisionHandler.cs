@@ -1,8 +1,20 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
+    [SerializeField] float levelLoadDelay = 2f;
+    [SerializeField] AudioClip deathExplosion;
+    [SerializeField] AudioClip success;
+
+    AudioSource audioSource;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     void OnCollisionEnter(Collision other)
     {
         switch (other.gameObject.tag)
@@ -11,13 +23,30 @@ public class CollisionHandler : MonoBehaviour
                 Debug.Log("출발!");
                 break;
             case "Finish":
-                LoadNextLevel();
+                StartFinishSequence();
                 break;
             default:
-                Invoke("ReloadLevel", 2f);
+                StartCrashSequence();
                 break;
         }
     }
+
+    void StartCrashSequence()
+    {
+        // todo add sfx and particles
+        audioSource.PlayOneShot(deathExplosion);
+        GetComponent<Movement>().enabled = false;
+        Invoke("ReloadLevel", levelLoadDelay);
+    }
+
+    void StartFinishSequence()
+    {
+        // todo add sfx and particles
+        audioSource.PlayOneShot(success);
+        GetComponent<Movement>().enabled = false;
+        Invoke("LoadNextLevel", levelLoadDelay);
+    }
+
     void LoadNextLevel()
     {
         int currentScene = SceneManager.GetActiveScene().buildIndex;
