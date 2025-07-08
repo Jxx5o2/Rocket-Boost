@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8721788485434124923}
   - component: {fileID: 7538816096664644952}
   - component: {fileID: 410133164829397071}
+  - component: {fileID: 567766517742235196}
   m_Layer: 0
   m_Name: Player Rocket
   m_TagString: Untagged
@@ -304,6 +305,18 @@ MonoBehaviour:
   successSFX: {fileID: 8300000, guid: bea6978d97d1fb64b95371b7fd099b37, type: 3}
   successParticles: {fileID: 6729359710962732828}
   crashParticles: {fileID: 3800037133461217791}
+--- !u!114 &567766517742235196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6237375641391936707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90aadfc2c908e1748abec1b94dd4622e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1589728775088187960
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -689,6 +702,10 @@ PrefabInstance:
     - target: {fileID: 198631066050499358, guid: 62198a3a5dbb64a4f9e1618929224faa, type: 3}
       propertyPath: ShapeModule.type
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198631066050499358, guid: 62198a3a5dbb64a4f9e1618929224faa, type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

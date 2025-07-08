@@ -35,7 +35,6 @@ public class CollisionHandler : MonoBehaviour
         else if (Keyboard.current.cKey.wasPressedThisFrame)
         {
             isCollidable = !isCollidable;
-            Debug.Log("C키가 눌렸습니다");
         }
     }
 
