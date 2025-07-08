@@ -3,12 +3,6 @@ using UnityEngine.InputSystem;
 
 public class QuitApplication : MonoBehaviour
 {
-
-    void Start()
-    {
-
-    }
-
     void Update()
     {
         Escape();
@@ -16,7 +10,7 @@ public class QuitApplication : MonoBehaviour
 
     void Escape()
     {
-        if (Keyboard.current.escapeKey.wasPressedThisFrame)
+        if (Keyboard.current.escapeKey.IsPressed())
         {
             Application.Quit();
         }
